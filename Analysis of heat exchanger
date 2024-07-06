@@ -1,0 +1,27 @@
+promt=("Enter Hot Fluid Inlet temperature(thi)");
+thi= input(promt);
+promt=("Enter Hot Fluid Outlet temperature(tho)");
+tho=input(promt);
+promt=("Enter Cold Fluid Inlet temperature(tci)");
+tci=input(promt);
+promt=("Enter Cold Fluid Outlet temperature(tco)");
+tco=input(promt);
+if tco<tho
+    fprintf("Parallel Float Heat exchanger")
+    theta1=thi-tci;
+    theta2=tho-tco;
+else
+    fprintf("Counter Flow Heat Exchanger")
+    theta1=thi-tco;
+    theta2=tho-tci;
+end
+f1=theta2-theta1;
+fr=theta2/theta1;
+f2=log(fr);
+thetam = f1/f2
+promt=("Enter value of U");
+U=input(promt);
+promt=("Enter radius of tube(r)");
+r=input(promt);
+A=pi*r*r;
+Q=U*A*thetam
